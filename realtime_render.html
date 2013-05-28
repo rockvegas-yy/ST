@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <canvas id="canvas1" width="800" height="600"></canvas>
+
+    <script type="text/javascript">
+        
+        setInterval(function () { onTimeup() }, 25);
+
+        var x = 0;
+        var canvas1 = document.getElementById("canvas1");
+        var context = null;
+        if (canvas1 != null) {
+            context = canvas1.getContext("2d");
+        }
+        function onTimeup() {
+            if (canvas1 != null) {
+                if (context != null) {
+                    context.fillStyle = "rgb(0, 0, 0)";
+                    context.strokeStyle = "rgb(0, 255, 0)";
+                    context.fillRect(x, 0, 10, 600);
+                    context.moveTo(x, 300);
+                    x = (x + 2) % 800;
+                    context.lineTo(x, 300);
+                    context.stroke();
+                    //context.strokeRect(x - 2, 0, 10, 600);
+
+                }
+            }
+        }
+    </script>
+</body>
+</html>
